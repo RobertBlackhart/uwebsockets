@@ -153,7 +153,7 @@ class Websocket:
 
         elif length < (1 << 16):  # Length fits in 2-bytes
             byte2 |= 126  # Magic code
-            await self.srwriter.awrite(struct.pack('!BBH', byte1, byte2, length))
+            await self.swriter.awrite(struct.pack('!BBH', byte1, byte2, length))
 
         elif length < (1 << 64):
             byte2 |= 127  # Magic code
